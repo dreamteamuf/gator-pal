@@ -8,6 +8,7 @@ class Login extends React.Component{
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleSignout = this.handleSignout.bind(this);
     }
     handleLogin(){
         //alert('started firebase authentication handling')
@@ -15,6 +16,13 @@ class Login extends React.Component{
         .auth()
         .signInWithEmailAndPassword(this.state.username,this.state.password)
         .then(() => alert('Signed in'))
+        .catch(error => alert(error))
+    }
+    handleSignout(){
+        firebase
+        .auth()
+        .signOut()
+        .then(() => alert('Signed Out'))
         .catch(error => alert(error))
     }
     handleChangeUsername(e){
@@ -30,6 +38,7 @@ class Login extends React.Component{
         <input name="username" placeholder="Username" type="text" onChange={this.handleChangeUsername}/>
         <input name="password" placeholder="Password" type="password" onChange={this.handleChangePassword}/>
         <button onClick={this.handleLogin}>Login</button>
+        <button onClick={this.handleSignout}>Signout</button>
         </div>
         )
     }
