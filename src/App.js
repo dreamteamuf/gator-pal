@@ -1,26 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import PrivateRoute from './PrivateRoute';
+import app from './constants/apiconfig';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { loading: true, authenticated: false, user: null };
+
+  componentWillMount() {
+    app.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          currentUser: user,
+          loading: false
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          currentUser: null,
+          loading: false
+        });
+      }
+    });
+  }
+  render() {
+    const { authenticated, loading } = this.state;
+    if (loading) {
+      return <p>Loading...</p>
+    }
+    return (
+      <Router>
+        <PrivateRoute
+              exact
+              path="/"
+              component={Home}
+              authenticated={authenticated}
+            />
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup" component={SignUp}/>
+      </Router>
+    );
+  }
 }
 
 export default App;
