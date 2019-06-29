@@ -11,9 +11,8 @@ import Therapy from './components/Therapy'
 import Analytics from './components/Therapy'
 import Main from './components/Main'
 class App extends Component {
-  state = { loading: true, authenticated: false, user: null };
-
-  componentWillMount() {
+  state = { loading: true, authenticated: false, currentUser: null, test: "asdf",};
+  componentDidMount() {//Changed from ComponentWillMount as it is legacy code
     app.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({
@@ -28,10 +27,13 @@ class App extends Component {
           loading: false
         });
       }
+      //alert(this.state.currentUser);
     });
   }
+
+ 
   render() {
-    const { authenticated, loading } = this.state;
+    const { authenticated, loading, currentUser } = this.state;
     if (loading) {
       return <p>Loading...</p>
     }
@@ -42,6 +44,7 @@ class App extends Component {
               path="/"
               component={Home}
               authenticated={authenticated}
+              user = {currentUser}
             />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUp}/>

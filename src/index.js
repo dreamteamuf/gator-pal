@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';// yarn add react-dom
 import './index.css';
 import App from './App';
-import Login from './Login';
-import firebase from 'firebase'
 import * as serviceWorker from './serviceWorker';
 
 
