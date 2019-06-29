@@ -5,9 +5,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import Logo from './assets/DTElogo.png'
+import Logo from '../assets/DTElogo.png'
 import './Home.css';
-import app from './constants/apiconfig'
+import app from '../constants/apiconfig'
  class Home extends Component {
    constructor(props) {
      super(props);
@@ -23,7 +23,7 @@ import app from './constants/apiconfig'
   render () {
     return (
       <div className="root">
-        <AppBar position="static">
+        <AppBar position="static" className="nav-bar">
           <Toolbar>
             <IconButton edge="start" className="menuButton" color="inherit" aria-label="Menu">
               <img src={Logo} className="logo"/>
