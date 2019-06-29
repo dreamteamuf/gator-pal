@@ -8,7 +8,7 @@ const LoginView = ({ onSubmit }) => {
         <div className="container">
           <img className="dreamteam-logo" src={dreamteamlogo}></img>
           <h1>Login</h1>
-          <form onSubmit={onSubmit} class="login-form container">
+          <form onSubmit={onSubmit} className="login-form container">
             <input
               className="input"
               name="email"

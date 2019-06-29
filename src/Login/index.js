@@ -6,6 +6,7 @@ import LoginView from "./LoginView";
 
 class LoginContainer extends Component {
   handleSignUp = async event => {
+    console.log('started authentication')
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
@@ -14,7 +15,7 @@ class LoginContainer extends Component {
         .signInWithEmailAndPassword(email.value, password.value);
       this.props.history.push("/");
     } catch (error) {
-      alert(error);
+      alert(error);//todo change on production
     }
   };
 
