@@ -17,6 +17,6 @@
 }
 @media screen and (max-width: 1000px){
     .AppBar{
-        background-color: black;
+        color: green;
     }
 }

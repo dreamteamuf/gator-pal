@@ -4,13 +4,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Logo from './assets/DTElogo.png'
 import './Home.css';
 import app from './constants/apiconfig'
+import { blue } from "@material-ui/core/colors";
  class Home extends Component {
    state = {
-     user: this.props.user.uid,
+     user: this.props.user,
    }
    // eslint-disable-next-line no-useless-constructor
    constructor(props) {
@@ -25,10 +27,10 @@ import app from './constants/apiconfig'
     });
   }
   render () {
-
     return (
+      
       <div className="root">
-        <AppBar position="static" className="AppBar">
+        <AppBar position="static" className="Appbar">
           <Toolbar>
             <IconButton edge="start" className="menuButton" color="inherit" aria-label="Menu">
               <img src={Logo} className="logo"/>
@@ -48,11 +50,10 @@ import app from './constants/apiconfig'
         </AppBar>
         <Router>
           <h1>Home</h1>
-          <p>{alert(this.state.user)}</p>
+          <p>{this.state.user.uid}</p>
         </Router>
       </div> 
     )
   }
 };
-
 export default Home;

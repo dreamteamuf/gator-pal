@@ -1,6 +1,9 @@
 import React from "react";
 import './Login.css';
 import dreamteamlogo from "../assets/DTElogo.png";
+import SignUp from "../SignUp/index";
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 const LoginView = ({ onSubmit }) => {
   return (
     <div className="login-page container">
@@ -22,7 +25,13 @@ const LoginView = ({ onSubmit }) => {
               placeholder="Password"
             />
             <button className="button-signin" type="submit">Sign In</button>
+            <button className="button-signup">
+            <Link to="/signup" className="link"> 
+                Sign Up
+              </Link>
+            </button>
           </form>
+
         </div>
       </div>
     </div>
