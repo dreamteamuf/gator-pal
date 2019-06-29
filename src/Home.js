@@ -10,9 +10,14 @@ import Logo from './assets/DTElogo.png'
 import './Home.css';
 import app from './constants/apiconfig'
 import { blue } from "@material-ui/core/colors";
+//import firestore from "./firestore";
+
  class Home extends Component {
    state = {
      user: this.props.user,
+     fullname: "John",
+     email: "john@john.com",
+     database_username: ''
    }
    // eslint-disable-next-line no-useless-constructor
    constructor(props) {
@@ -26,7 +31,33 @@ import { blue } from "@material-ui/core/colors";
       alert('cant sign out')
     });
   }
+  addTest () {
+    console.log("Started Database Test")
+    const db = app.firestore().collection('users').doc(this.state.user.uid);
+    const {fullname , email} = this.state;
+    db.set({
+        fullname,
+        email
+    }).then(console.log("Completed Database Add"))
+    .catch((error) => alert(error))
+  }
+  getTest () {
+    console.log("Started Database get test")
+    const db = app.firestore().collection('users').doc(this.state.user.uid);
+    db.get().then((doc) => {
+      if (doc.exists) {
+        const board = doc.data();
+        this.setState({
+          database_username: board.fullname,
+        });
+      } else {
+        console.log("No such document!");
+      }
+    });
+  }
   render () {
+    //this.addTest();
+    this.getTest();
     return (
       
       <div className="root">
@@ -50,7 +81,7 @@ import { blue } from "@material-ui/core/colors";
         </AppBar>
         <Router>
           <h1>Home</h1>
-          <p>{this.state.user.uid}</p>
+          <p>{this.state.database_username}</p>
         </Router>
       </div> 
     )
