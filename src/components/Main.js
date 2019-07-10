@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SwipeableViews from 'react-swipeable-views'
 
 class Main extends Component {
     constructor(props) {
@@ -8,7 +9,11 @@ class Main extends Component {
     render() {
         return (
             <section id="Main">
-                Main
+            <SwipeableViews enableMouseEvents>
+                <div>Bro</div>
+                <div>What</div>
+                <div>Please</div>
+            </SwipeableViews>
             </section>
         );
     }
