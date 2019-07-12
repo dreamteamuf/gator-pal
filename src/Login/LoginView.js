@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const LoginView = ({ onSubmit }) => {
   return (
-    <div className="login-page container">
+    <div className="login-page container-fluid">
       <div className="login-modal">
         <div className="container">
           <img className="dreamteam-logo" src={dreamteamlogo}></img>

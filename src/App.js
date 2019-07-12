@@ -7,9 +7,7 @@ import PrivateRoute from './PrivateRoute';
 import app from './constants/apiconfig';
 import logo from './logo.svg';
 import './App.css';
-import Therapy from './components/Therapy'
-import Analytics from './components/Therapy'
-import Main from './components/Main'
+
 class App extends Component {
   state = { loading: true, authenticated: false, currentUser: null, test: "asdf",};
   componentDidMount() {//Changed from ComponentWillMount as it is legacy code
@@ -48,9 +46,6 @@ class App extends Component {
             />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUp}/>
-          <Route exact path="/therapy" component={Therapy}/>
-          <Route exact path="/progress" component={Analytics}/>
-          <Route exact path="/main" component={Main}/>
       </Router>
     );
   }

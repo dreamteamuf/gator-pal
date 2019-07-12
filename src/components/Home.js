@@ -4,9 +4,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Logo from '../assets/DTElogo.png'
+import Main from './Main';
+import Therapy from './Therapy'
+import Analytics from './Analytics'
 import './Home.css';
 import app from '../constants/apiconfig'
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { blue } from "@material-ui/core/colors";
 //import firestore from "./firestore";
 
@@ -59,6 +62,7 @@ import { blue } from "@material-ui/core/colors";
     return (
       
       <div className="root">
+      <Router>
         <AppBar position="static" className="nav-bar">
           <Toolbar>
             <IconButton edge="start" className="menuButton" color="inherit" aria-label="Menu">
@@ -68,8 +72,13 @@ import { blue } from "@material-ui/core/colors";
               Gator Pal
             </h2>
             <Button color="inherit">
-              <Link to="/login" className="link"> 
-                Login
+              <Link to="/" className="link"> 
+                Main
+              </Link>
+            </Button>
+            <Button color="inherit">
+              <Link to="/analytics" className="link"> 
+                Analytics
               </Link>
             </Button>
             <Button color="inherit" onClick={this.signOut}>
@@ -77,10 +86,10 @@ import { blue } from "@material-ui/core/colors";
             </Button>
           </Toolbar>
         </AppBar>
-        <Router>
-          <h1>Home</h1>
-          <p>{this.state.database_username}</p>
-        </Router>
+          <Route exact path="/" component={Main}></Route>
+          <Route path="/analytics" component={Analytics}></Route>
+          <Route path="/therapy" component={Therapy}></Route>
+      </Router>
       </div> 
     )
   }
