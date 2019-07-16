@@ -1,5 +1,10 @@
+.list {
+    width: 250px;
+}
+
 .root {
     flex-grow: 1;
+    height: 100vh;
 }
 .menuButton {
     margin-right: 16px !important;

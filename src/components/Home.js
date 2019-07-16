@@ -10,20 +10,55 @@ import Analytics from './Analytics'
 import './Home.css';
 import app from '../constants/apiconfig'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import { blue } from "@material-ui/core/colors";
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';;
+
 //import firestore from "./firestore";
+const sideList = side => (
+  <div
+    className="list"
+    role="presentation"
+    onClick={this.toggleDrawer(side, false)}
+    onKeyDown={this.toggleDrawer(side, false)}
+  >
+    <List>
+      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        <ListItem button key={text}>
+          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          <ListItemText primary={text} />
+        </ListItem>
+      ))}
+    </List>
+    <Divider />
+    <List>
+      {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        <ListItem button key={text}>
+          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          <ListItemText primary={text} />
+        </ListItem>
+      ))}
+    </List>
+  </div>
+);
 
  class Home extends Component {
-   state = {
-     user: this.props.user,
-     fullname: "John",
-     email: "john@john.com",
-     database_username: ''
-   }
    // eslint-disable-next-line no-useless-constructor
    constructor(props) {
      super(props);
-     //this.state = {userName:""}
+     this.state = {
+      user: this.props.user,
+      fullname: "John",
+      email: "john@john.com",
+      database_username: '',
+      left: false
+    }
+     
   }
   signOut () {
     app.auth().signOut().then(function() {
@@ -42,6 +77,15 @@ import { blue } from "@material-ui/core/colors";
     }).then(console.log("Completed Database Add"))
     .catch((error) => alert(error))
   }
+  toggleDrawer (side, open, event)  {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+  
+    this.setState({
+      [side] : open
+    })
+  };
   getTest () {
     console.log("Started Database get test")
     const db = app.firestore().collection('users').doc(this.state.user.uid);
@@ -65,7 +109,7 @@ import { blue } from "@material-ui/core/colors";
       <Router>
         <AppBar position="static" className="nav-bar">
           <Toolbar>
-            <IconButton edge="start" className="menuButton" color="inherit" aria-label="Menu">
+            <IconButton  onClick={this.toggleDrawer('left', true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
               <img src={Logo} className="logo"/>
             </IconButton>
             <h2 className="title">
@@ -86,6 +130,9 @@ import { blue } from "@material-ui/core/colors";
             </Button>
           </Toolbar>
         </AppBar>
+        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+        {sideList('left')}
+        </Drawer>
           <Route exact path="/" component={Main}></Route>
           <Route path="/analytics" component={Analytics}></Route>
           <Route path="/therapy" component={Therapy}></Route>

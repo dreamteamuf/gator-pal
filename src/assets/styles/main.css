@@ -1,10 +1,42 @@
-.slide-1 {
-    height: 100vh;
-}
-.slide-1 .first {
 
+.center {
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+    margin: 8px;
+}
+.slider .first {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+.slider .second {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+.swipeable-views-container {
+    margin-bottom: 20px;
+    height: 90%;
+}
+#Main {
+    padding-top: 50px;
+    position: relative;
+    height: 80vh;
+}
+.theform {
+    display: flex;
+    flex-wrap: wrap;
 }
 .doctor-logo {
-    max-height: 50%;
-    max-width: 50%;
+    height: auto;
+    max-width: 250px;
+}
+.textField {
+    margin-right: 10px !important;
+    margin-left: 10px;
 }
