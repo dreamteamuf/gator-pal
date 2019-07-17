@@ -20,32 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';;
 
 //import firestore from "./firestore";
-const sideList = side => (
-  <div
-    className="list"
-    role="presentation"
-    onClick={this.toggleDrawer(side, false)}
-    onKeyDown={this.toggleDrawer(side, false)}
-  >
-    <List>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    <List>
-      {['All mail', 'Trash', 'Spam'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List>
-  </div>
-);
+
 
  class Home extends Component {
    // eslint-disable-next-line no-useless-constructor
@@ -77,13 +52,9 @@ const sideList = side => (
     }).then(console.log("Completed Database Add"))
     .catch((error) => alert(error))
   }
-  toggleDrawer (side, open, event)  {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-  
+  toggleDrawer (open)  {
     this.setState({
-      [side] : open
+      left : open
     })
   };
   getTest () {
@@ -109,7 +80,7 @@ const sideList = side => (
       <Router>
         <AppBar position="static" className="nav-bar">
           <Toolbar>
-            <IconButton  onClick={this.toggleDrawer('left', true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
+            <IconButton  onClick={() => this.toggleDrawer(true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
               <img src={Logo} className="logo"/>
             </IconButton>
             <h2 className="title">
@@ -130,8 +101,31 @@ const sideList = side => (
             </Button>
           </Toolbar>
         </AppBar>
-        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
-        {sideList('left')}
+        <Drawer open={this.state.left} onClose={() => this.toggleDrawer(false)}>
+          <div
+            className="list"
+            role="presentation"
+            // onClick={this.toggleDrawer('left', false)}
+            // onKeyDown={this.toggleDrawer('left', false)}
+          >
+            <List>
+              {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                <ListItem button key={text}>
+                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+            <Divider />
+            <List>
+              {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                <ListItem button key={text}>
+                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
         </Drawer>
           <Route exact path="/" component={Main}></Route>
           <Route path="/analytics" component={Analytics}></Route>
