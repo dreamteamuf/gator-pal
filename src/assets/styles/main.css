@@ -2,8 +2,18 @@
 .center {
     text-align: center;
     font-weight: 500;
+    font-size: 2em;
     width: 100%;
     margin: 8px;
+}
+.hellotext {
+    font-size: 1.4em;
+}
+.jc--center {
+    justify-content: center;
+}
+.jc--space-between {
+    justify-content: space-between;
 }
 .slider .first {
     text-align: center;
@@ -31,6 +41,10 @@
 .theform {
     display: flex;
     flex-wrap: wrap;
+}
+.full {
+    width: 100%;
+    padding: 8px;
 }
 .doctor-logo {
     height: auto;

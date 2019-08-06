@@ -15,9 +15,12 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import HomeIcon from '@material-ui/icons/Home';
+import DashBoardIcon from '@material-ui/icons/Dashboard';
+import AccesibilityIcon from '@material-ui/icons/Accessibility'
+import ContactIcon from '@material-ui/icons/ContactSupport'
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';;
+import BugIcon from '@material-ui/icons/BugReport'
 
 //import firestore from "./firestore";
 
@@ -87,12 +90,17 @@ import MailIcon from '@material-ui/icons/Mail';;
               Gator Pal
             </h2>
             <Button color="inherit">
-              <Link to="/" className="link"> 
+              <Link to="/" className="link color-white"> 
                 Main
               </Link>
             </Button>
             <Button color="inherit">
-              <Link to="/analytics" className="link"> 
+              <Link to="/therapy" className="link color-white"> 
+                Therapy
+              </Link>
+            </Button>
+            <Button color="inherit">
+              <Link to="/analytics" className="link color-white"> 
                 Analytics
               </Link>
             </Button>
@@ -109,21 +117,37 @@ import MailIcon from '@material-ui/icons/Mail';;
             // onKeyDown={this.toggleDrawer('left', false)}
           >
             <List>
-              {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                  <ListItemText primary={text} />
+              <Link to="/" className="link">
+                <ListItem button key={'Home'}> 
+                    <ListItemIcon><HomeIcon /></ListItemIcon>
+                    <ListItemText primary={'Home'} />
                 </ListItem>
-              ))}
+              </Link>
+              <Link to="/analytics"  className="link">
+                <ListItem button key={'Analytics'}>
+                    <ListItemIcon><DashBoardIcon /></ListItemIcon>
+                    <ListItemText primary={'Analytics'} />
+                </ListItem>
+              </Link>
+              <Link to="/therapy" className="link">
+                <ListItem button key={'Therapy'}>
+                  <ListItemIcon><AccesibilityIcon/></ListItemIcon>
+                  <ListItemText primary={'Therapy'} />
+              </ListItem>
+              </Link>
+              <Link to="Contact" className="link">
+                <ListItem button key={'Contact'}>
+                    <ListItemIcon><ContactIcon /></ListItemIcon>
+                    <ListItemText primary={'Contact'} />
+                </ListItem>
+              </Link>
             </List>
             <Divider />
             <List>
-              {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItem>
-              ))}
+              <ListItem button key={'Submit a Bug Report'}>
+                <ListItemIcon><BugIcon/></ListItemIcon>
+                <ListItemText primary={'Submit a Bug Report'} />
+              </ListItem>
             </List>
           </div>
         </Drawer>

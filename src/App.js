@@ -5,7 +5,6 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import PrivateRoute from './PrivateRoute';
 import app from './constants/apiconfig';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

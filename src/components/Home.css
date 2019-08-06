@@ -13,8 +13,10 @@
     flex-grow: 1;
 }
 .link {
-    text-decoration: none;
-    color: #ffffff;
+    text-decoration: none !important;
+}
+.color-white {
+    color: white;
 }
 .logo {
     height: 50px;
