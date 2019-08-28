@@ -62,17 +62,22 @@ import BugIcon from '@material-ui/icons/BugReport'
   };
   getTest () {
     console.log("Started Database get test")
-    const db = app.firestore().collection('users').doc(this.state.user.uid);
-    db.get().then((doc) => {
-      if (doc.exists) {
-        const board = doc.data();
-        this.setState({
-          database_username: board.fullname,
-        });
-      } else {
-        console.log("No such document!");
-      }
-    });
+    console.log(this.state.user.uid)
+    const db = app.firestore().collection(`users/${this.state.user.uid}/Progress`);
+    let all = db.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.data())
+      })
+    })
+    // db.get().then((doc) => {
+    //   console.log(doc)
+    //   if (doc.exists) {
+    //     const board = doc.data();
+    //     console.log(board)
+    //   } else {
+    //     console.log("No such document!");
+    //   }
+    // });
   }
   render () {
     //this.addTest();
