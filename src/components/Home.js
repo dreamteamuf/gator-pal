@@ -9,7 +9,7 @@ import Therapy from './Therapy'
 import Analytics from './Analytics'
 import './Home.css';
 import app from '../constants/apiconfig'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch, Redirect } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -85,7 +85,6 @@ import BugIcon from '@material-ui/icons/BugReport'
     return (
       
       <div className="root">
-      <Router>
         <AppBar position="static" className="nav-bar">
           <Toolbar>
             <IconButton  onClick={() => this.toggleDrawer(true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
@@ -156,10 +155,10 @@ import BugIcon from '@material-ui/icons/BugReport'
             </List>
           </div>
         </Drawer>
-          <Route exact path="/" component={Main}></Route>
-          <Route path="/analytics" component={Analytics}></Route>
-          <Route path="/therapy" component={Therapy}></Route>
-      </Router>
+        <Route exact path="/" component={Main}></Route>
+        <Route path="/analytics" component={Analytics}></Route>
+        <Route path="/therapy" component={Therapy}></Route>
+        {/* <Route component={Main}/> */}
       </div> 
     )
   }

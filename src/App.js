@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home";
+import Analytics from "./components/Analytics";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import PrivateRoute from './PrivateRoute';
@@ -37,14 +38,25 @@ class App extends Component {
     return (
       <Router>
         <PrivateRoute
-              exact
-              path="/"
+              exact path="/"
               component={Home}
               authenticated={authenticated}
               user = {currentUser}
             />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUp}/>
+        <PrivateRoute
+            exact path="/analytics"
+            component={Home}
+            authenticated={authenticated}
+            user = {currentUser}
+          />
+        <PrivateRoute
+            exact path="/therapy"
+            component={Home}
+            authenticated={authenticated}
+            user = {currentUser}
+          />
       </Router>
     );
   }

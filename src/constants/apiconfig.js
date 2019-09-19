@@ -22,7 +22,7 @@ appId: process.env.REACT_appId
 var config;
 
 config = (process.env.NODE_ENV === 'prod') ? prodConfig : devConfig;
-console.log(devConfig.authDomain);
+// console.log(devConfig.authDomain);
 const app = firebase.initializeApp(config);
 
 export default app;
