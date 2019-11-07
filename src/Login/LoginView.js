@@ -2,7 +2,7 @@ import React from "react";
 import './Login.css';
 import dreamteamlogo from "../assets/DTElogo.png";
 // import SignUp from "../SignUp/index";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LoginView = ({ onSubmit }) => {
   return (
