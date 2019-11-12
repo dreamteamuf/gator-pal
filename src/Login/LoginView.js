@@ -68,7 +68,7 @@ const LoginView = ({ onSubmit }) => {
             <label htmlFor="sign-in-checkbox" className="small-text">
                Remember me
             </label>
-            <button className="button-signin" type="submit">Create Account</button>
+            <button className="button-signin" type="submit">Sign In</button>
           </form>
         </div>
     </div>
