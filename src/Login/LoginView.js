@@ -16,7 +16,6 @@ const LoginView = ({ onSubmit }) => {
               name="name"
               type="name"
               id="name"
-              placeholder="Enter Your Name Here"
             />
             <label htmlFor="email" className="label">Your email</label>
             <input
@@ -24,7 +23,6 @@ const LoginView = ({ onSubmit }) => {
               name="email"
               type="email"
               id="email"
-              placeholder="Enter Your Email Here"
             />
             <label htmlFor="password" className="label">Your password</label>
             <input
@@ -32,7 +30,6 @@ const LoginView = ({ onSubmit }) => {
               name="password"
               type="password"
               id="password"
-              placeholder="Enter Your Password Here"
             />
             <input
               name="remember-me"
@@ -55,7 +52,6 @@ const LoginView = ({ onSubmit }) => {
               name="email"
               type="email"
               id="email"
-              placeholder="Enter Your Email Here"
             />
             <label htmlFor="password" className="label">Your password</label>
             <input
@@ -63,7 +59,6 @@ const LoginView = ({ onSubmit }) => {
               name="password"
               type="password"
               id="password"
-              placeholder="Enter Your Password Here"
             />
             <input
               name="remember-me"
