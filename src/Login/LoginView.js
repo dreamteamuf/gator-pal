@@ -7,35 +7,77 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 const LoginView = ({ onSubmit }) => {
   return (
     <div className="login-page container-fluid">
-      <div className="login-modal">
-        <div className="container">
-          <img className="dreamteam-logo" src={dreamteamlogo}></img>
-          <h1>Login</h1>
-          <form onSubmit={onSubmit} className="login-form container">
+        <div className="sign-in">
+          <h1>Sign Up</h1>
+          <form onSubmit={onSubmit}>
+            <label htmlFor="name" className="label">Your name</label>
             <input
-              className="input"
+              className="sign-in-input1"
+              name="name"
+              type="name"
+              id="name"
+              placeholder="Enter Your Name Here"
+            />
+            <label htmlFor="email" className="label">Your email</label>
+            <input
+              className="sign-in-input1"
               name="email"
               type="email"
-              placeholder="Email"
+              id="email"
+              placeholder="Enter Your Email Here"
             />
+            <label htmlFor="password" className="label">Your password</label>
             <input
-              className="input"
+              className="sign-in-input1"
               name="password"
               type="password"
-              placeholder="Password"
+              id="password"
+              placeholder="Enter Your Password Here"
             />
-            <button className="button-signin" type="submit">Sign In</button>
-            <button className="button-signup">
-            <Link to="/signup" className="link"> 
-                Sign Up
-              </Link>
-            </button>
+            <input
+              name="remember-me"
+              type="checkbox"
+              id="sign-in-checkbox"
+            />
+            <label htmlFor="sign-in-checkbox" className="small-text">
+               I agree to Conditions of Use and Privacy Policy
+            </label>
+            <button className="button-signin" type="submit">Create Account</button>
           </form>
-
         </div>
-      </div>
+
+        <div className="sign-in">
+          <h1>Sign In</h1>
+          <form onSubmit={onSubmit}>
+            <label htmlFor="email" className="label">Your email</label>
+            <input
+              className="sign-in-input2"
+              name="email"
+              type="email"
+              id="email"
+              placeholder="Enter Your Email Here"
+            />
+            <label htmlFor="password" className="label">Your password</label>
+            <input
+              className="sign-in-input2"
+              name="password"
+              type="password"
+              id="password"
+              placeholder="Enter Your Password Here"
+            />
+            <input
+              name="remember-me"
+              type="checkbox"
+              id="sign-in-checkbox"
+            />
+            <label htmlFor="sign-in-checkbox" className="small-text">
+               Remember me
+            </label>
+            <button className="button-signin" type="submit">Create Account</button>
+          </form>
+        </div>
     </div>
-  );
+  )
 };
 
 export default LoginView;
