@@ -25,7 +25,6 @@ class App extends Component {
           loading: false
         });
       }
-      //alert(this.state.currentUser);
     });
   }
 
