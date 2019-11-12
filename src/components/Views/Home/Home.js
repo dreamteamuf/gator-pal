@@ -83,7 +83,7 @@ import MenuIcon from '@material-ui/icons/Menu'
     return (
       
       <div className="root">
-        <AppBar position="static" className="nav-bar">
+        <AppBar position="fixed" className="nav-bar">
           <Toolbar>
             <IconButton  onClick={() => this.toggleDrawer(true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
               <MenuIcon/>

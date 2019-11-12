@@ -1,0 +1,17 @@
+.drawer {
+    width: 240px;
+    margin-top: 64px;
+    height: calc(100%-64px);
+}
+
+.divider {
+    margin: 16px 0;
+}
+
+.root-container {
+    height: 100%;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    background-color: #ffffff;
+}
