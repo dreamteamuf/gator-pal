@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Home from "./components/Views/Home/Home";
-import Analytics from "./components/Views/Analytics/Analytics";
-import Login from "./Login";
+import Home from "./Views/Home/Home";
+import Analytics from "./Views/Analytics/Analytics";
+import Login from "./Views/Login";
 import SignUp from "./SignUp";
 import PrivateRoute from './PrivateRoute';
 import app from './constants/apiconfig';

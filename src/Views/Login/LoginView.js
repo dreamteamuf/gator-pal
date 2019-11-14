@@ -1,6 +1,6 @@
 import React from "react";
 import './Login.css';
-import dreamteamlogo from "../assets/DTElogo.png";
+import dreamteamlogo from "../../assets/DTElogo.png";
 // import SignUp from "../SignUp/index";
 import { Link } from 'react-router-dom';
 

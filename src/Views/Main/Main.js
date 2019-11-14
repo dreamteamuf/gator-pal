@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import SwipeableViews from 'react-swipeable-views'
 import Paper from '@material-ui/core/Paper'
-import PatientBox from './utils/PatientBox'
-import '../assets/styles/main.css'
+import PatientBox from '../../components/utils/PatientBox'
+import './main.css'
 import TextField from '@material-ui/core/TextField'
-import DoctorImage from '../assets/surgerydoctor.png'
-import Pagination from './utils/Pagination'
+// import DoctorImage from '../assets/surgerydoctor.png'
+import Pagination from '../../components/utils/Pagination'
 import Button from '@material-ui/core/Button';
-import app from '../constants/apiconfig';
+import app from '../../constants/apiconfig';
 import axios from 'axios'
 
 

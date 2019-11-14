@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
-import Profile from './Profile'
+import Profile from './Analytics/Profile'
 import clsx from 'clsx'
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles'
 import { Divider, Drawer } from '@material-ui/core';
-import InfoBox from './InfoBox'
+import InfoBox from './Analytics/InfoBox'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 const useStyles = makeStyles(theme => ({
     drawer: {
@@ -39,7 +40,8 @@ const SideBar = props => {
     <div {...rest} className={clsx(classes.root)}>
         <Profile/>
         <Divider className={classes.divider}></Divider>
-        <InfoBox/>
+        <LinearProgress variant="determinate" value={75}/>
+        <InfoBox className="root"/>
     </div>
     </Drawer>
     )

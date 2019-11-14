@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import app from "../constants/apiconfig";
+import app from "../../constants/apiconfig";
 
 import LoginView from "./LoginView";
 

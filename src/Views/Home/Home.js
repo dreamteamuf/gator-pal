@@ -3,12 +3,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import Logo from '../../../assets/DTElogo.png'
-import Main from '../../Main';
-import Therapy from '../../Therapy'
+import Logo from '../../assets/DTElogo.png'
+import Main from '../Main/Main';
+import Therapy from '../Therapy/Therapy'
 import Analytics from '../Analytics/Analytics'
 import './Home.css';
-import app from '../../../constants/apiconfig'
+import app from '../../constants/apiconfig'
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -156,6 +156,7 @@ import MenuIcon from '@material-ui/icons/Menu'
             </List>
           </div>
         </Drawer>
+        
         <Route exact path="/" component={Main}></Route>
         <Route path="/analytics" component={Analytics}></Route>
         <Route path="/therapy" component={Therapy}></Route>

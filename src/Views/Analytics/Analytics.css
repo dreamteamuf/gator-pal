@@ -27,7 +27,8 @@
     margin-top: 10px;
 }
 .stats {
-    height: 75px;
-    width: 150px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 16px;
 }

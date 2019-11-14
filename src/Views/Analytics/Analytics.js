@@ -3,7 +3,8 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup, VictoryLine, Victo
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid'
 import './Analytics.css'
-import SideBar from '../../SideBar'
+import SideBar from '../SideBar'
+import PeopleIcon from '@material-ui/icons/People';
 
 const data = [
     {quarter: 1, earnings: 13000},
@@ -29,13 +30,13 @@ class Analytics extends Component {
                     className="top-analytics"
                     >
                         <Paper className="stats">
-                            <h1>Test</h1>
+                            <PeopleIcon/><p> Temp: 102.5</p>
                         </Paper>
                         <Paper className="stats">
-                            <h1>Test</h1>
+                            <PeopleIcon/><p>Blood Pressure: 80/20</p>
                         </Paper>
                         <Paper className="stats">
-                            <h1>Test</h1>
+                            <PeopleIcon/><p>Last diagnosis: 50min</p>
                         </Paper>
                     </Grid>
                     <Grid 
