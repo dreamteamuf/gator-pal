@@ -9,15 +9,26 @@
 }
 .chart-container {
     margin: 10px;
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 250px;
+    max-width: 250px;
     min-width: 150px;
     min-height: 150px;
 }
 #Analytics {
-    height: calc(100% - 72px);
     width: 100%;
+    padding-top: 56px;
+    height: 100%;
+
+}
+.shift-content {
+    padding-left: 240px;
 }
 .top-analytics {
     margin-top: 10px;
+}
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 16px;
 }

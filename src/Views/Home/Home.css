@@ -23,10 +23,16 @@
     width: 50px;
 }
 .nav-bar {
-    height: 72px;
+    height: 56px;
 }
 @media screen and (max-width: 1000px){
-    .nav-bar{
+    /* .nav-bar{
         color: green;
-    }
+    } */
+}
+
+.button-group {
+    right: 0;
+    position: absolute;
+    margin-right: 2%;
 }
