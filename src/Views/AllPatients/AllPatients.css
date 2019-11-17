@@ -1,0 +1,17 @@
+#AllPatients {
+    width: 100%;
+    padding-top: 56px;
+    height: 100%;
+}
+
+.top-allpatients {
+    margin-top: 100;
+}
+
+
+.searchbar{
+    display: 'flex';
+    flex: 'wrap';
+    text-align: center;
+}
+
