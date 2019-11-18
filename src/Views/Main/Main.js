@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import SwipeableViews from 'react-swipeable-views'
 import Paper from '@material-ui/core/Paper'
-import '../assets/styles/main.css'
+import PatientBox from '../../components/utils/PatientBox'
+import './main.css'
 import TextField from '@material-ui/core/TextField'
-import DoctorImage from '../assets/surgerydoctor.png'
-import Pagination from './utils/Pagination'
+// import DoctorImage from '../assets/surgerydoctor.png'
+import Pagination from '../../components/utils/Pagination'
 import Button from '@material-ui/core/Button';
-import app from '../constants/apiconfig';
+import app from '../../constants/apiconfig';
 import axios from 'axios'
 
 
@@ -61,8 +62,9 @@ class Main extends Component {
         const {index} = this.state
         return (
             <section id="Main">
-
-            <SwipeableViews enableMouseEvents index={index} onChangeIndex={this.handleChangeIndex} className="swipeable-views-container">
+            <PatientBox/>
+            
+            {/* <SwipeableViews enableMouseEvents index={index} onChangeIndex={this.handleChangeIndex} className="swipeable-views-container">
                 <div className="slider slide-1 container">
                     <Paper className="first">
                         <img src={DoctorImage} alt="cartoon doctor" className="doctor-logo"></img>
@@ -140,7 +142,7 @@ class Main extends Component {
                     </Paper>
                 </div>
             </SwipeableViews>
-            <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex}/>
+            <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex}/> */}
             </section>
         );
     }

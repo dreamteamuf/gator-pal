@@ -3,12 +3,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import Logo from '../assets/DTElogo.png'
-import Main from './Main';
-import Therapy from './Therapy'
-import Analytics from './Analytics'
+import Logo from '../../assets/DTElogo.png'
+import Main from '../Main/Main';
+import Therapy from '../Therapy/Therapy'
+import Analytics from '../Analytics/Analytics'
 import './Home.css';
-import app from '../constants/apiconfig'
+import app from '../../constants/apiconfig'
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -21,9 +21,7 @@ import AccesibilityIcon from '@material-ui/icons/Accessibility'
 import ContactIcon from '@material-ui/icons/ContactSupport'
 import ListItemText from '@material-ui/core/ListItemText';
 import BugIcon from '@material-ui/icons/BugReport'
-
-//import firestore from "./firestore";
-
+import MenuIcon from '@material-ui/icons/Menu'
 
  class Home extends Component {
    // eslint-disable-next-line no-useless-constructor
@@ -61,14 +59,14 @@ import BugIcon from '@material-ui/icons/BugReport'
     })
   };
   getTest () {
-    console.log("Started Database get test")
-    console.log(this.state.user.uid)
-    const db = app.firestore().collection(`users/${this.state.user.uid}/Progress`);
-    let all = db.get().then(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(doc.data())
-      })
-    })
+    // console.log("Started Database get test")
+    // console.log(this.state.user.uid)
+    // const db = app.firestore().collection(`users/${this.state.user.uid}/Progress`);
+    // let all = db.get().then(snapshot => {
+    //   snapshot.forEach(doc => {
+    //     console.log(doc.data())
+    //   })
+    // })
     // db.get().then((doc) => {
     //   console.log(doc)
     //   if (doc.exists) {
@@ -85,32 +83,35 @@ import BugIcon from '@material-ui/icons/BugReport'
     return (
       
       <div className="root">
-        <AppBar position="static" className="nav-bar">
+        <AppBar position="fixed" className="nav-bar">
           <Toolbar>
             <IconButton  onClick={() => this.toggleDrawer(true)} edge="start" className="menuButton" color="inherit" aria-label="Menu">
-              <img src={Logo} className="logo"/>
+              <MenuIcon/>
             </IconButton>
+            <img src={Logo} className="logo"/>
             <h2 className="title">
               Gator Pal
             </h2>
-            <Button color="inherit">
-              <Link to="/" className="link color-white"> 
-                Main
-              </Link>
-            </Button>
-            <Button color="inherit">
-              <Link to="/therapy" className="link color-white"> 
-                Therapy
-              </Link>
-            </Button>
-            <Button color="inherit">
-              <Link to="/analytics" className="link color-white"> 
-                Analytics
-              </Link>
-            </Button>
-            <Button color="inherit" onClick={this.signOut}>
-              Sign Out
-            </Button>
+            <div className="button-group">
+              <Button color="inherit">
+                <Link to="/" className="link color-white"> 
+                  Main
+                </Link>
+              </Button>
+              <Button color="inherit">
+                <Link to="/therapy" className="link color-white"> 
+                  Therapy
+                </Link>
+              </Button>
+              <Button color="inherit">
+                <Link to="/analytics" className="link color-white"> 
+                  Analytics
+                </Link>
+              </Button>
+              <Button color="inherit" onClick={this.signOut}>
+                Sign Out
+              </Button>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer open={this.state.left} onClose={() => this.toggleDrawer(false)}>
@@ -155,6 +156,7 @@ import BugIcon from '@material-ui/icons/BugReport'
             </List>
           </div>
         </Drawer>
+        
         <Route exact path="/" component={Main}></Route>
         <Route path="/analytics" component={Analytics}></Route>
         <Route path="/therapy" component={Therapy}></Route>
