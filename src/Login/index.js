@@ -10,6 +10,8 @@ class LoginContainer extends Component {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
+      console.log(email)
+      console.log(password)
       const user = await app
         .auth()
         .signInWithEmailAndPassword(email.value, password.value);
