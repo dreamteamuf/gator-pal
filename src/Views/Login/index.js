@@ -30,7 +30,17 @@ class LoginContainer extends Component {
           // .catch(function(error){
           //   console.log("we got an error my boi");
           // });
-      this.props.history.push("/");
+          .then(async (data) => {
+            const {user} = data
+            if(user){
+              await user.sendEmailVerification({
+                url: 'http://localhost:3000',
+              });
+              this.props.history.push("/");
+            }
+          })
+      
+      // this.props.history.push("/");
     } catch(error){
       alert(error)
     }
