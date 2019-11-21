@@ -30,16 +30,10 @@ class LoginContainer extends Component {
           // .catch(function(error){
           //   console.log("we got an error my boi");
           // });
+      this.props.history.push("/");
     } catch(error){
       alert(error)
     }
-    app.auth().onAuthStateChanged(function(user){
-      if (user) {
-        this.props.history.push("/");
-      } else {
-        console.log("no user!")
-      }
-    });
   };
 
   handleSignUp = async event => {
