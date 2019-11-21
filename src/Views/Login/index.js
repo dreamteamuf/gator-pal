@@ -5,13 +5,25 @@ import app from "../../constants/apiconfig";
 import LoginView from "./LoginView";
 
 class LoginContainer extends Component {
+
+  handleSignUp2 = async event => {
+    console.log('started signup')
+    event.preventDefault();
+    const {name, email, password} = event.target.elements;
+    try{
+      const user = await app
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value)
+    } catch(error){
+      alert(error)
+    }
+  };
+
   handleSignUp = async event => {
     console.log('started authentication')
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      console.log(email)
-      console.log(password)
       const user = await app
         .auth()
         .signInWithEmailAndPassword(email.value, password.value);
@@ -22,7 +34,7 @@ class LoginContainer extends Component {
   };
 
   render() {
-    return <LoginView onSubmit={this.handleSignUp} />;
+    return <LoginView onSubmit={this.handleSignUp} onSubmit2={this.handleSignUp2} />;
   }
 }
 
