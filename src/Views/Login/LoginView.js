@@ -4,11 +4,11 @@ import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import { Link } from 'react-router-dom';
 
-const LoginView = ({ onSubmit, onSubmit2 }) => {
+const LoginView = ({ onSignIn, onSignUp }) => {
   return (
     <div className="login-page container-fluid">
-        <SignUp onSubmit={onSubmit2}/>
-        <SignIn onSubmit={onSubmit}/>
+        <SignUp onSubmit={onSignUp}/>
+        <SignIn onSubmit={onSignIn}/>
     </div>
   )
 };

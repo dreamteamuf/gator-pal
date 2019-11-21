@@ -7,7 +7,7 @@ import LoginView from "./LoginView";
 class LoginContainer extends Component {
 
 
-  handleSignUp2 = async event => {
+  handleSignUp = async event => {
     console.log('started signup')
     event.preventDefault();
     const {name, email, password} = event.target.elements;
@@ -46,7 +46,7 @@ class LoginContainer extends Component {
     }
   };
 
-  handleSignUp = async event => {
+  handleSignIn = async event => {
     console.log('started authentication')
     event.preventDefault();
     const { email, password } = event.target.elements;
@@ -61,7 +61,7 @@ class LoginContainer extends Component {
   };
 
   render() {
-    return <LoginView onSubmit={this.handleSignUp} onSubmit2={this.handleSignUp2} />;
+    return <LoginView onSignIn={this.handleSignIn} onSignUp={this.handleSignUp} />;
   }
 }
 
