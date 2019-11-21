@@ -12,6 +12,7 @@ export default class SignIn extends Component {
                     name="name"
                     type="name"
                     id="name"
+                    required
                   />
                   <label htmlFor="email" className="label">Your email</label>
                   <input
@@ -19,6 +20,7 @@ export default class SignIn extends Component {
                     name="email"
                     type="email"
                     id="email"
+                    required
                   />
                   <label htmlFor="password" className="label">Your password</label>
                   <input
@@ -26,11 +28,13 @@ export default class SignIn extends Component {
                     name="password"
                     type="password"
                     id="password"
+                    required
                   />
                   <input
                     name="remember-me"
                     type="checkbox"
                     id="sign-in-checkbox"
+                    required
                   />
                   <label htmlFor="sign-in-checkbox" className="small-text">
                     I agree to Conditions of Use and Privacy Policy
