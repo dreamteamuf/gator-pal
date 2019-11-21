@@ -6,6 +6,7 @@ import LoginView from "./LoginView";
 
 class LoginContainer extends Component {
 
+
   handleSignUp2 = async event => {
     console.log('started signup')
     event.preventDefault();
@@ -14,9 +15,31 @@ class LoginContainer extends Component {
       const user = await app
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value)
+          // set user's name as well -- needs to be added to user properties in console
+          // .then(
+          //   (data) => {
+          //     const {user} = data
+          //     console.log(user)
+          //     if(user){
+          //       user.updateProfile({
+          //         name: name.value
+          //       })
+          //     }
+          //     console.log(user.name)
+          // })
+          // .catch(function(error){
+          //   console.log("we got an error my boi");
+          // });
     } catch(error){
       alert(error)
     }
+    app.auth().onAuthStateChanged(function(user){
+      if (user) {
+        this.props.history.push("/");
+      } else {
+        console.log("no user!")
+      }
+    });
   };
 
   handleSignUp = async event => {
